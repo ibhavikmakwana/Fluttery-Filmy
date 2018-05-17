@@ -4,6 +4,14 @@ description: A new Flutter application.
 dependencies:
   flutter:
     sdk: flutter
+  transparent_image: ^0.1.0
+  flutter_launcher_icons: "^0.3.2"
+
+flutter_icons:
+  image_path: "icon/icon.png"
+  android: true
+  ios: "Example-Icon"
+
 
 
 
@@ -13,8 +21,6 @@ dependencies:
 
   # contains a few thousand of the most used English words plus some utility functions.
   english_words: ^3.1.0
-
-  transparent_image: "^0.1.0"
 
 
 dev_dependencies:
