@@ -1,6 +1,6 @@
-# flutter_app
+# Fluttery Filmy
 
-A new Flutter application.
+🎥 Movie app which is developed using flutter and powered by tmdb.
 
 ## Getting Started
 
