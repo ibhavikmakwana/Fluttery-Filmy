@@ -6,7 +6,7 @@
 
 # Preview
 
-| Keyframe animation |
+|  |
 | ------------------ |
 | <img src="./screenshot/demo.gif" height="400" alt="Screenshot"/>  |
 
