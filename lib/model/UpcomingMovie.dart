@@ -1,4 +1,5 @@
 class UpcomingMovie {
+  var id;
   String title;
   String posterPath;
   String backdropPath;
@@ -7,6 +8,6 @@ class UpcomingMovie {
   String overview;
   String releaseDate;
 
-  UpcomingMovie(this.title, this.posterPath, this.backdropPath,
+  UpcomingMovie(this.id, this.title, this.posterPath, this.backdropPath,
       this.originalTitle, this.voteAverage, this.overview, this.releaseDate);
 }

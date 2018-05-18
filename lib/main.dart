@@ -1,6 +1,6 @@
-import 'dart:_http';
 import 'dart:async';
 import 'dart:convert';
+import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -8,8 +8,8 @@ import 'package:flutter_app/TMDBConfig.dart';
 import 'package:flutter_app/model/NowPlayingMovie.dart';
 import 'package:flutter_app/model/PopularMovie.dart';
 import 'package:flutter_app/model/UpcomingMovie.dart';
+import 'package:flutter_app/ui/MovieDetailsPage.dart';
 import 'package:transparent_image/transparent_image.dart';
-
 
 void main() => runApp(MainApp());
 
@@ -165,6 +165,7 @@ Future<List<PopularMovie>> getPopularMovies() async {
 List<NowPlayingMovie> createNowPlayingMovieList(List data) {
   List<NowPlayingMovie> list = new List();
   for (int i = 0; i < data.length; i++) {
+    var id = data[i]["id"];
     String title = data[i]["title"];
     String posterPath = data[i]["poster_path"];
     String backdropImage = data[i]["backdrop_path"];
@@ -173,7 +174,10 @@ List<NowPlayingMovie> createNowPlayingMovieList(List data) {
     String overview = data[i]["overview"];
     String releaseDate = data[i]["release_date"];
 
-    NowPlayingMovie movie = new NowPlayingMovie(title, posterPath,
+    NowPlayingMovie movie = new NowPlayingMovie(
+        id,
+        title,
+        posterPath,
         backdropImage, originalTitle, voteAverage, overview, releaseDate);
     list.add(movie);
   }
@@ -184,6 +188,7 @@ List<NowPlayingMovie> createNowPlayingMovieList(List data) {
 List<UpcomingMovie> createUpcomingMovieList(List data) {
   List<UpcomingMovie> list = new List();
   for (int i = 0; i < data.length; i++) {
+    var id = data[i]["id"];
     String title = data[i]["title"];
     String posterPath = data[i]["poster_path"];
     String backdropImage = data[i]["backdrop_path"];
@@ -192,8 +197,15 @@ List<UpcomingMovie> createUpcomingMovieList(List data) {
     String overview = data[i]["overview"];
     String releaseDate = data[i]["release_date"];
 
-    UpcomingMovie movie = new UpcomingMovie(title, posterPath, backdropImage,
-        originalTitle, voteAverage, overview, releaseDate);
+    UpcomingMovie movie = new UpcomingMovie(
+        id,
+        title,
+        posterPath,
+        backdropImage,
+        originalTitle,
+        voteAverage,
+        overview,
+        releaseDate);
     list.add(movie);
   }
   return list;
@@ -203,6 +215,7 @@ List<UpcomingMovie> createUpcomingMovieList(List data) {
 List<PopularMovie> createPopularMovieList(List data) {
   List<PopularMovie> list = new List();
   for (int i = 0; i < data.length; i++) {
+    var id = data[i]["id"];
     String title = data[i]["title"];
     String posterPath = data[i]["poster_path"];
     String backdropImage = data[i]["backdrop_path"];
@@ -211,7 +224,11 @@ List<PopularMovie> createPopularMovieList(List data) {
     String overview = data[i]["overview"];
     String releaseDate = data[i]["release_date"];
 
-    PopularMovie movie = new PopularMovie(title, posterPath, backdropImage,
+    PopularMovie movie = new PopularMovie(
+        id,
+        title,
+        posterPath,
+        backdropImage,
         originalTitle, voteAverage, overview, releaseDate);
     list.add(movie);
   }
@@ -237,10 +254,19 @@ List<Widget> createNowPlayingMovieCardItem(
           ),
           child: new GestureDetector(
             onTap: () {
-              ///TODO: Add detail page behaviour. Will be added in the next blog post.
+              if (movie.id > 0) {
+                Navigator.push(
+                  context,
+                  new MaterialPageRoute(
+                      builder: (_) => new MovieDetailsPage(movie.id)),
+                );
+              }
             },
             child: new FadeInImage.memoryNetwork(
-                placeholder: kTransparentImage, image: imageURL,fit: BoxFit.cover,),
+              placeholder: kTransparentImage,
+              image: imageURL,
+              fit: BoxFit.cover,
+            ),
           ));
       listElementWidgetList.add(listItem);
     }
@@ -266,11 +292,12 @@ List<Widget> createUpcomingMovieCardItem(
             title: new Text(movie.title),
           ),
           child: new GestureDetector(
-            onTap: () {
-              ///TODO: Add detail page behaviour. Will be added in the next blog post.
-            },
+            onTap: () {},
             child: new FadeInImage.memoryNetwork(
-              placeholder: kTransparentImage, image: imageURL,fit: BoxFit.cover,),
+              placeholder: kTransparentImage,
+              image: imageURL,
+              fit: BoxFit.cover,
+            ),
           ));
       listElementWidgetList.add(listItem);
     }
@@ -300,7 +327,10 @@ List<Widget> createPopularMovieCardItem(
               ///TODO: Add detail page behaviour. Will be added in the next blog post.
             },
             child: new FadeInImage.memoryNetwork(
-              placeholder: kTransparentImage, image: imageURL,fit: BoxFit.cover,),
+              placeholder: kTransparentImage,
+              image: imageURL,
+              fit: BoxFit.cover,
+            ),
           ));
       listElementWidgetList.add(listItem);
     }

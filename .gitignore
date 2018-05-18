@@ -88,4 +88,3 @@ unlinked_spec.ds
 
 .flutter-plugins
 lib/TMDBConfig.dart
-lib/ui/MovieDetails.dart

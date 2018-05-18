@@ -1,33 +1,35 @@
-//class MovieDetail {
-//  final String id;
-//  final String title;
-//  final String originalTitle;
-//  final String genres;
-//  final List<String> directors;
-//  final String lengthInMinutes;
-//  final String shortSynopsis;
-//  final String synopsis;
-////  final EventImageData images;
-//  final List<String> youtubeTrailers;
-//  List<Actor> actors;
-//
-//  MovieDetail(
-//      this.id,
-//      this.title,
-//      this.originalTitle,
-//      this.genres,
-//      this.directors,
-//      this.actors,
-//      this.lengthInMinutes,
-//      this.shortSynopsis,
-//      this.synopsis,
-////      this.images,
-//      this.youtubeTrailers);
-//}
-//
-//class Actor {
-//  final String name;
-//  final String avatarUrl;
-//
-//  Actor(this.name, this.avatarUrl);
-//}
+class MovieDetail {
+  var id;
+  final String originalTitle;
+  final List<String> genres;
+  final String synopsis;
+  final String posterPath;
+  final String backdropPath;
+  var voteAverage;
+  final List<ProductionCompanies> productionCompanies;
+
+  MovieDetail(
+      this.id,
+      this.originalTitle,
+      this.genres,
+      this.synopsis,
+      this.posterPath,
+      this.backdropPath,
+      this.voteAverage,
+      this.productionCompanies);
+}
+
+class Genres {
+  var id;
+  final String name;
+
+  Genres(this.id, this.name);
+}
+
+class ProductionCompanies {
+  var id;
+  final String name;
+  final String logoPath;
+
+  ProductionCompanies(this.id, this.name, this.logoPath);
+}

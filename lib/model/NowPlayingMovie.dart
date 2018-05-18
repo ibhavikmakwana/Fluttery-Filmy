@@ -1,4 +1,5 @@
 class NowPlayingMovie {
+  var id;
   String title;
   String posterPath;
   String backdropPath;
@@ -7,6 +8,6 @@ class NowPlayingMovie {
   String overview;
   String releaseDate;
 
-  NowPlayingMovie(this.title, this.posterPath, this.backdropPath,
+  NowPlayingMovie(this.id, this.title, this.posterPath, this.backdropPath,
       this.originalTitle, this.voteAverage, this.overview, this.releaseDate);
 }

@@ -1,4 +1,5 @@
 class PopularMovie {
+  var id;
   String title;
   String posterPath;
   String backdropPath;
@@ -7,6 +8,6 @@ class PopularMovie {
   String overview;
   String releaseDate;
 
-  PopularMovie(this.title, this.posterPath, this.backdropPath,
+  PopularMovie(this.id, this.title, this.posterPath, this.backdropPath,
       this.originalTitle, this.voteAverage, this.overview, this.releaseDate);
 }
