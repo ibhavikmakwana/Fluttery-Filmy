@@ -27,8 +27,23 @@ Hit me on twitter [![Twitter URL](https://img.shields.io/twitter/url/http/shield
 
 ## Getting Started
 
-For help getting started with Flutter, view our online
+For help getting started with Flutter, view online
 [documentation](https://flutter.io/).
+
+#### 1. [Setup Flutter](https://flutter.io/setup/)
+
+#### 2. Clone the repo
+
+```sh
+$ git clone https://github.com/ibhavikmakwana/Fluttery-Filmy.git
+$ cd Fluttery-Filmy/
+```
+
+#### 4. Run the app
+
+```sh
+$ flutter run
+```
 
 ## License
 Copyright 2018 Bhavik Makwana
