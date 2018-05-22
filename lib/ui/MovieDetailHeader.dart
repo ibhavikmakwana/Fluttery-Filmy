@@ -9,15 +9,12 @@ class MovieDetailHeader extends StatelessWidget {
 
   final MovieDetail movies;
 
-  _buildCategotyChips(TextTheme textTheme) {
-    return movies.genres.map((category) {
-      return new Padding(
-        padding: const EdgeInsets.only(right: 8.0),
-        child: new Chip(
-          label: new Text(category),
-          labelStyle: textTheme.caption,
-          backgroundColor: Colors.black12,
-        ),
+  _buildCategoryChips(TextTheme textTheme) {
+    return movies.genres.map((genres) {
+      return new Chip(
+        label: new Text(genres),
+        labelStyle: textTheme.caption,
+        backgroundColor: Colors.black12,
       );
     }).toList();
   }
@@ -28,10 +25,13 @@ class MovieDetailHeader extends StatelessWidget {
 
     var movieInformation = new Column(
       crossAxisAlignment: CrossAxisAlignment.start,
-      children: <Widget>[
-        new Text(
-          movies.originalTitle,
-          style: textTheme.title,
+      children: [
+        new Padding(
+          padding: const EdgeInsets.only(top: 16.0),
+          child: new Text(
+            movies.originalTitle,
+            style: textTheme.title,
+          ),
         ),
         new Padding(
           padding: const EdgeInsets.only(top: 8.0),
@@ -39,29 +39,37 @@ class MovieDetailHeader extends StatelessWidget {
         ),
         new Padding(
           padding: const EdgeInsets.only(top: 12.0),
-          child: new Row(
-            children: <Widget>[
-              _buildCategotyChips(textTheme),
-            ],
+          child: new Wrap(
+            spacing: 8.0,
+            runSpacing: 4.0,
+            direction: Axis.horizontal,
+            children: _buildCategoryChips(textTheme),
           ),
         )
       ],
     );
 
     return new Stack(
-      children: <Widget>[
+      children: [
         new Padding(
-          padding: const EdgeInsets.only(bottom: 140.0),
-          child: new ArcBannerImage(movies.backdropPath),
+          padding: const EdgeInsets.only(bottom: 240.0),
+          child: new ArcBannerImage(
+              "https://image.tmdb.org/t/p/w500/" + movies.backdropPath),
         ),
         new Positioned(
+          bottom: 32.0,
+          left: 16.0,
+          right: 16.0,
           child: new Row(
             crossAxisAlignment: CrossAxisAlignment.end,
             mainAxisAlignment: MainAxisAlignment.end,
-            children: <Widget>[
-              new Poster(
-                movies.posterPath,
-                height: 180.0,
+            children: [
+              new Padding(
+                padding: const EdgeInsets.only(bottom: 70.0),
+                child: new Poster(
+                  "https://image.tmdb.org/t/p/w500/" + movies.posterPath,
+                  height: 190.0,
+                ),
               ),
               new Expanded(
                 child: new Padding(
@@ -71,10 +79,7 @@ class MovieDetailHeader extends StatelessWidget {
               ),
             ],
           ),
-          bottom: 0.0,
-          left: 16.0,
-          right: 16.0,
-        )
+        ),
       ],
     );
   }

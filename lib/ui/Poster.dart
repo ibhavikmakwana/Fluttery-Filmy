@@ -18,7 +18,7 @@ class Poster extends StatelessWidget {
     return new Material(
       borderRadius: new BorderRadius.circular(4.0),
       elevation: 2.0,
-      child: new Image.asset(
+      child: new Image.network(
         posterUrl,
         fit: BoxFit.cover,
         width: width,

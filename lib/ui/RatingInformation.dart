@@ -8,18 +8,18 @@ class RatingInformation extends StatelessWidget {
 
   _buildRatingBar(ThemeData theme) {
     var stars = <Widget>[];
-
+    var rate = movie.voteAverage / 2;
     for (var i = 0; i < 5; ++i) {
-      var color = i <= movie.voteAverage ? theme.accentColor : Colors.black12;
+      var color = i <= rate ? theme.accentColor : Colors.black12;
       var star = new Icon(
         Icons.star,
         color: color,
       );
+
       stars.add(star);
     }
-    return new Row(
-      children: stars,
-    );
+
+    return new Row(children: stars);
   }
 
   @override
@@ -31,9 +31,9 @@ class RatingInformation extends StatelessWidget {
     var numericRating = new Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: <Widget>[
+      children: [
         new Text(
-          movie.voteAverage,
+          movie.voteAverage.toString(),
           style: textTheme.title
               .copyWith(fontWeight: FontWeight.w400, color: theme.accentColor),
         ),

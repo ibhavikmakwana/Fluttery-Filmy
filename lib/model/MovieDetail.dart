@@ -5,7 +5,7 @@ class MovieDetail {
   final String synopsis;
   final String posterPath;
   final String backdropPath;
-  var voteAverage;
+  double voteAverage;
   final List<ProductionCompanies> productionCompanies;
 
   MovieDetail(
@@ -17,6 +17,19 @@ class MovieDetail {
       this.backdropPath,
       this.voteAverage,
       this.productionCompanies);
+
+//  factory MovieDetail.fromJson(Map<String, dynamic> json) {
+//    return new MovieDetail(
+//      id: json["id"],
+//      originalTitle: json["original_title"],
+//      genres: json["genres"],
+//      synopsis: json["overview"],
+//      posterPath: json["poster_path"],
+//      backdropPath: json["backdrop_path"],
+//      voteAverage: json["vote_average"],
+//      productionCompanies: json["production_companies"],
+//    );
+//  }
 }
 
 class Genres {

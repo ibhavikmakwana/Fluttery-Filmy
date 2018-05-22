@@ -292,7 +292,15 @@ List<Widget> createUpcomingMovieCardItem(
             title: new Text(movie.title),
           ),
           child: new GestureDetector(
-            onTap: () {},
+            onTap: () {
+              if (movie.id > 0) {
+                Navigator.push(
+                  context,
+                  new MaterialPageRoute(
+                      builder: (_) => new MovieDetailsPage(movie.id)),
+                );
+              }
+            },
             child: new FadeInImage.memoryNetwork(
               placeholder: kTransparentImage,
               image: imageURL,
@@ -324,7 +332,13 @@ List<Widget> createPopularMovieCardItem(
           ),
           child: new GestureDetector(
             onTap: () {
-              ///TODO: Add detail page behaviour. Will be added in the next blog post.
+              if (movie.id > 0) {
+                Navigator.push(
+                  context,
+                  new MaterialPageRoute(
+                      builder: (_) => new MovieDetailsPage(movie.id)),
+                );
+              }
             },
             child: new FadeInImage.memoryNetwork(
               placeholder: kTransparentImage,

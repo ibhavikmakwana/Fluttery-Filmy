@@ -8,7 +8,7 @@
 
 |  |
 | ------------------ |
-| <img src="./screenshot/demo.gif" height="400" alt="Screenshot"/>  |
+| <img src="./screenshot/Fluttery_Filmy.gif" height="400" alt="Screenshot"/>  |
 
 ## What's next?
 

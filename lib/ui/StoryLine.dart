@@ -13,12 +13,15 @@ class StoryLine extends StatelessWidget {
     return new Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        new Text(
-          'Synopsis',
-          style: textTheme.subhead.copyWith(fontSize: 18.0),
+        new Padding(
+          padding: const EdgeInsets.only(top: 8.0, left: 16.0),
+          child: new Text(
+            'Synopsis',
+            style: textTheme.subhead.copyWith(fontSize: 18.0),
+          ),
         ),
         new Padding(
-          padding: const EdgeInsets.only(top: 8.0),
+          padding: const EdgeInsets.only(top: 8.0, left: 16.0, right: 16.0),
           child: new Text(
             storyline,
             style:
@@ -27,21 +30,24 @@ class StoryLine extends StatelessWidget {
         ),
         // No expand-collapse in this tutorial, we just slap the "more"
         // button below the text like in the mockup.
-        new Row(
-          mainAxisAlignment: MainAxisAlignment.end,
-          crossAxisAlignment: CrossAxisAlignment.end,
-          children: [
-            new Text(
-              'more',
-              style: textTheme.body1
-                  .copyWith(fontSize: 16.0, color: theme.accentColor),
-            ),
-            new Icon(
-              Icons.keyboard_arrow_down,
-              size: 18.0,
-              color: theme.accentColor,
-            ),
-          ],
+        new Padding(
+          padding: const EdgeInsets.only(left: 16.0, right: 16.0),
+          child: new Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: [
+              new Text(
+                'more',
+                style: textTheme.body1
+                    .copyWith(fontSize: 16.0, color: theme.accentColor),
+              ),
+              new Icon(
+                Icons.keyboard_arrow_down,
+                size: 18.0,
+                color: theme.accentColor,
+              ),
+            ],
+          ),
         ),
       ],
     );

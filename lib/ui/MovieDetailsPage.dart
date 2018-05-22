@@ -5,9 +5,10 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_app/TMDBConfig.dart';
 import 'package:flutter_app/model/MovieDetail.dart';
-import 'package:flutter_app/ui/ActorScroller.dart';
 import 'package:flutter_app/ui/MovieDetailHeader.dart';
+import 'package:flutter_app/ui/ProductionCompaniesScroller.dart';
 import 'package:flutter_app/ui/StoryLine.dart';
+import 'package:http/http.dart' as http;
 
 class MovieDetailsPage extends StatelessWidget {
   MovieDetailsPage(this.id);
@@ -19,35 +20,43 @@ class MovieDetailsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-      body: new FutureBuilder(
+      body: new FutureBuilder<MovieDetail>(
         future: getMovieDetail(id),
-        builder: (BuildContext context, AsyncSnapshot<MovieDetail> snapshot) {
-          if (!snapshot.hasData)
+        builder: (context, snapshot) {
+          if (!snapshot.hasData) {
+            print("Result $snapshot");
             return new Container(
               // Shows progress indicator until the data is load.
               child: new Center(
                 child: new CircularProgressIndicator(),
               ),
             );
-          // Shows the real data with the data retrieved.
-          MovieDetail movies = snapshot.data;
-          return new CustomScrollView(
-            slivers: <Widget>[
-              new MovieDetailHeader(movies),
-              new Padding(
-                padding: const EdgeInsets.all(0.0),
-                child: new StoryLine(movies.synopsis),
+          } else if (snapshot.hasError) {
+            return new Center(
+              child: new Text("${snapshot.error}"),
+            );
+          } else {
+            MovieDetail movies = snapshot.data;
+            return new SingleChildScrollView(
+              child: new Column(
+                children: [
+                  new MovieDetailHeader(movies),
+                  new Padding(
+                    padding: const EdgeInsets.all(0.0),
+                    child: new StoryLine(movies.synopsis),
+                  ),
+                  new Padding(
+                    padding: const EdgeInsets.only(
+                      top: 20.0,
+                      bottom: 50.0,
+                    ),
+                    child: new ProductionCompaniesScroller(
+                        movies.productionCompanies),
+                  ),
+                ],
               ),
-              new Padding(
-                padding: const EdgeInsets.only(
-                  top: 20.0,
-                  bottom: 50.0,
-                ),
-                child:
-                    new ProductionCompaniesScroller(movies.productionCompanies),
-              ),
-            ],
-          );
+            );
+          }
         },
       ),
     );
@@ -56,7 +65,7 @@ class MovieDetailsPage extends StatelessWidget {
   // Method to get now playing movies from the backend
   Future<MovieDetail> getMovieDetail(id) async {
     final String nowPlaying = 'https://api.themoviedb.org/3/movie/' +
-        id +
+        id.toString() +
         '?api_key=' +
         TMDBConfig.apiKey +
         '&page=' +
@@ -65,19 +74,18 @@ class MovieDetailsPage extends StatelessWidget {
     var httpClient = new HttpClient();
     try {
       // Make the call
-      var request = await httpClient.getUrl(Uri.parse(nowPlaying));
-      var response = await request.close();
-      if (response.statusCode == HttpStatus.OK) {
-        var jsonResponse = await response.transform(utf8.decoder).join();
-        // Decode the json response
-        var data = jsonDecode(jsonResponse);
-        // Get the Movie list
-        MovieDetail movieDetail = createDetailList(data);
-        // Print the results.
-        return movieDetail;
-      } else {
-        print("Failed http call.");
-      }
+      final response = await http.get(nowPlaying);
+      final responseJson = json.decode(response.body);
+
+//      var request = await httpClient.getUrl(Uri.parse(nowPlaying));
+//      var response = await request.close();
+//        var jsonResponse = await responseJson .transform(utf8.decoder).join();
+      // Decode the json response
+//        var data = jsonDecode(jsonResponse);
+      // Get the Movie list
+      MovieDetail movieDetail = createDetailList(responseJson);
+      // Print the results.
+      return movieDetail;
     } catch (exception) {
       print(exception.toString());
     }
@@ -90,16 +98,18 @@ class MovieDetailsPage extends StatelessWidget {
 
     var id = data["id"];
     var title = data["original_title"];
-    for (int i = 0; i < data.length; i++) {
-      var id = data[i]["id"];
-      String name = data[i]["name"];
-      String logoPath = data[i]["logo_path"];
+    var productionCompany = data["production_companies"];
+    for (int i = 0; i < productionCompany.length; i++) {
+      var id = productionCompany[i]["id"];
+      String name = productionCompany[i]["name"];
+      String logoPath = productionCompany[i]["logo_path"];
       ProductionCompanies productionCompanies =
           new ProductionCompanies(id, name, logoPath);
       productionCompaniesList.add(productionCompanies);
     }
-    for (int i = 0; i < data.length; i++) {
-      String name = data[i]["name"];
+    var genres = data["genres"];
+    for (int i = 0; i < genres.length; i++) {
+      String name = genres[i]["name"];
       genresList.add(name);
     }
     var overview = data["overview"];
