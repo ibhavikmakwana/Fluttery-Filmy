@@ -10,9 +10,16 @@
 | ------------------ |
 | <img src="./screenshot/Fluttery_Filmy.gif" height="400" alt="Screenshot"/>  |
 
+# Screenshot
+
+| Listing Screen | Detail Screen |
+| ------------------ | ------------------ |
+| <img src="./screenshot/movie_list.png" height="400" alt="Screenshot"/>  | <img src="./screenshot/movie_detail.png" height="400" alt="Screenshot"/>  |
+
 ## What's next?
 
- - Movies Details
+ - ~~Movies Details~~
+ - Maintain the state
  - Improve Design
  - Animations
  
