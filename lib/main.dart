@@ -11,9 +11,11 @@ import 'package:flutter_app/model/UpcomingMovie.dart';
 import 'package:flutter_app/ui/MovieDetailsPage.dart';
 import 'package:transparent_image/transparent_image.dart';
 
-void main() => runApp(MainApp());
+//void main() => runApp(MainApp());
+
 
 class MainApp extends StatelessWidget {
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -23,47 +25,6 @@ class MainApp extends StatelessWidget {
     );
   }
 }
-
-// Main method starts execution
-//void main() {
-//  runApp(new MaterialApp(
-//      debugShowCheckedModeBanner: false,
-//      title: "Fluttery Movies",
-//      home: new Scaffold(
-//          // App toolbar code
-//          appBar: new AppBar(
-//            title: new Text('Fluttery Movies'),
-//          ),
-//          // Body part of the screen
-//          body: new FutureBuilder(
-//              future: getMovies(),
-//              builder: (BuildContext context, AsyncSnapshot<List> snapshot) {
-//                if (!snapshot.hasData)
-//                  // Shows progress indicator until the data is load.
-//                  return new Container(
-//                    child: new Center(
-//                      child: new CircularProgressIndicator(),
-//                    ),
-//                  );
-//                // Shows the real data with the data retrieved.
-//                List movies = snapshot.data;
-//                return new CustomScrollView(
-//                  primary: false,
-//                  slivers: <Widget>[
-//                    new SliverPadding(
-//                      padding: const EdgeInsets.all(10.0),
-//                      sliver: new SliverGrid.count(
-//                        crossAxisSpacing: 10.0,
-//                        mainAxisSpacing: 10.0,
-//                        crossAxisCount: 2,
-//                        children: createMovieCardItem(movies, context),
-//                      ),
-//                    ),
-//                  ],
-//                );
-//              }))));
-//  getMovies();
-//}
 
 // Method to get now playing movies from the backend
 Future<List<NowPlayingMovie>> getNowPlayingMovies() async {
@@ -312,6 +273,7 @@ List<Widget> createUpcomingMovieCardItem(
   }
   return listElementWidgetList;
 }
+
 
 // create a card layout for the popular movie
 List<Widget> createPopularMovieCardItem(
