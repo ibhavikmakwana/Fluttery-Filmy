@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/model/MovieDetail.dart';
+import 'package:fluttery_filmy/model/MovieDetail.dart';
 
 class ProductionCompaniesScroller extends StatelessWidget {
   ProductionCompaniesScroller(this.productionCompanies);

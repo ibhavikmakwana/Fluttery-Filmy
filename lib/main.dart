@@ -4,14 +4,14 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:flutter_app/TMDBConfig.dart';
-import 'package:flutter_app/model/NowPlayingMovie.dart';
-import 'package:flutter_app/model/PopularMovie.dart';
-import 'package:flutter_app/model/UpcomingMovie.dart';
-import 'package:flutter_app/ui/MovieDetailsPage.dart';
+import 'package:fluttery_filmy/TMDBConfig.dart';
+import 'package:fluttery_filmy/model/NowPlayingMovie.dart';
+import 'package:fluttery_filmy/model/PopularMovie.dart';
+import 'package:fluttery_filmy/model/UpcomingMovie.dart';
+import 'package:fluttery_filmy/ui/MovieDetailsPage.dart';
 import 'package:transparent_image/transparent_image.dart';
 
-//void main() => runApp(MainApp());
+void main() => runApp(MainApp());
 
 
 class MainApp extends StatelessWidget {

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/main.dart';
-import 'package:flutter_app/onboarding/Walkthrough.dart';
+import 'package:fluttery_filmy/main.dart';
+import 'package:fluttery_filmy/onboarding/Walkthrough.dart';
 
 class WalkthroughScreen extends StatefulWidget {
   final List<Walkthrough> walkthroughList;

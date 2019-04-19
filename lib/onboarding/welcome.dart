@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/onboarding/Walkthrough.dart';
-import 'package:flutter_app/onboarding/WalkthroughScreen.dart';
+import 'package:fluttery_filmy/onboarding/Walkthrough.dart';
+import 'package:fluttery_filmy/onboarding/WalkthroughScreen.dart';
 
 const String _btnNextText = "NEXT";
 

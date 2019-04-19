@@ -3,11 +3,11 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_app/TMDBConfig.dart';
-import 'package:flutter_app/model/MovieDetail.dart';
-import 'package:flutter_app/ui/MovieDetailHeader.dart';
-import 'package:flutter_app/ui/ProductionCompaniesScroller.dart';
-import 'package:flutter_app/ui/StoryLine.dart';
+import 'package:fluttery_filmy/TMDBConfig.dart';
+import 'package:fluttery_filmy/model/MovieDetail.dart';
+import 'package:fluttery_filmy/ui/MovieDetailHeader.dart';
+import 'package:fluttery_filmy/ui/ProductionCompaniesScroller.dart';
+import 'package:fluttery_filmy/ui/StoryLine.dart';
 import 'package:http/http.dart' as http;
 
 class MovieDetailsPage extends StatelessWidget {

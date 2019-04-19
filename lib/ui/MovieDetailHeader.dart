@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/model/MovieDetail.dart';
-import 'package:flutter_app/ui/ArcBannerImage.dart';
-import 'package:flutter_app/ui/Poster.dart';
-import 'package:flutter_app/ui/RatingInformation.dart';
+import 'package:fluttery_filmy/model/MovieDetail.dart';
+import 'package:fluttery_filmy/ui/ArcBannerImage.dart';
+import 'package:fluttery_filmy/ui/Poster.dart';
+import 'package:fluttery_filmy/ui/RatingInformation.dart';
 
 class MovieDetailHeader extends StatelessWidget {
   MovieDetailHeader(this.movies);
