@@ -8,6 +8,7 @@ import 'package:fluttery_filmy/TMDBConfig.dart';
 import 'package:fluttery_filmy/model/NowPlayingMovie.dart';
 import 'package:fluttery_filmy/model/PopularMovie.dart';
 import 'package:fluttery_filmy/model/UpcomingMovie.dart';
+import 'package:fluttery_filmy/network/DataProvider.dart';
 import 'package:fluttery_filmy/ui/MovieDetailsPage.dart';
 import 'package:transparent_image/transparent_image.dart';
 
@@ -123,7 +124,7 @@ Future<List<PopularMovie>> getPopularMovies() async {
 }
 
 /// Method to parse information from the retrieved data
-List<NowPlayingMovie> createNowPlayingMovieList(List data) {
+/*List<NowPlayingMovie> createNowPlayingMovieList(List data) {
   List<NowPlayingMovie> list = List();
   for (int i = 0; i < data.length; i++) {
     var id = data[i]["id"];
@@ -140,7 +141,7 @@ List<NowPlayingMovie> createNowPlayingMovieList(List data) {
     list.add(movie);
   }
   return list;
-}
+}*/
 
 /// Method to parse information from the retrieved data
 List<UpcomingMovie> createUpcomingMovieList(List data) {
@@ -459,6 +460,7 @@ class MainPageState extends State<MainPage> {
   void initState() {
     super.initState();
     _pageController = PageController();
+    DataProvider().getNowPlayingMovies(1);
   }
 
   @override
