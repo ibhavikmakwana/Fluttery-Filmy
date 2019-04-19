@@ -13,9 +13,9 @@ import 'package:transparent_image/transparent_image.dart';
 
 void main() => runApp(MainApp());
 
+//https://www.uplabs.com/posts/movie-booking-elastic-experience
 
 class MainApp extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -135,10 +135,7 @@ List<NowPlayingMovie> createNowPlayingMovieList(List data) {
     String overview = data[i]["overview"];
     String releaseDate = data[i]["release_date"];
 
-    NowPlayingMovie movie = NowPlayingMovie(
-        id,
-        title,
-        posterPath,
+    NowPlayingMovie movie = NowPlayingMovie(id, title, posterPath,
         backdropImage, originalTitle, voteAverage, overview, releaseDate);
     list.add(movie);
   }
@@ -158,15 +155,8 @@ List<UpcomingMovie> createUpcomingMovieList(List data) {
     String overview = data[i]["overview"];
     String releaseDate = data[i]["release_date"];
 
-    UpcomingMovie movie = UpcomingMovie(
-        id,
-        title,
-        posterPath,
-        backdropImage,
-        originalTitle,
-        voteAverage,
-        overview,
-        releaseDate);
+    UpcomingMovie movie = UpcomingMovie(id, title, posterPath, backdropImage,
+        originalTitle, voteAverage, overview, releaseDate);
     list.add(movie);
   }
   return list;
@@ -185,11 +175,7 @@ List<PopularMovie> createPopularMovieList(List data) {
     String overview = data[i]["overview"];
     String releaseDate = data[i]["release_date"];
 
-    PopularMovie movie = PopularMovie(
-        id,
-        title,
-        posterPath,
-        backdropImage,
+    PopularMovie movie = PopularMovie(id, title, posterPath, backdropImage,
         originalTitle, voteAverage, overview, releaseDate);
     list.add(movie);
   }
@@ -218,8 +204,7 @@ List<Widget> createNowPlayingMovieCardItem(
               if (movie.id > 0) {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(
-                      builder: (_) => MovieDetailsPage(movie.id)),
+                  MaterialPageRoute(builder: (_) => MovieDetailsPage(movie.id)),
                 );
               }
             },
@@ -257,8 +242,7 @@ List<Widget> createUpcomingMovieCardItem(
               if (movie.id > 0) {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(
-                      builder: (_) => MovieDetailsPage(movie.id)),
+                  MaterialPageRoute(builder: (_) => MovieDetailsPage(movie.id)),
                 );
               }
             },
@@ -273,7 +257,6 @@ List<Widget> createUpcomingMovieCardItem(
   }
   return listElementWidgetList;
 }
-
 
 // create a card layout for the popular movie
 List<Widget> createPopularMovieCardItem(
@@ -297,8 +280,7 @@ List<Widget> createPopularMovieCardItem(
               if (movie.id > 0) {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(
-                      builder: (_) => MovieDetailsPage(movie.id)),
+                  MaterialPageRoute(builder: (_) => MovieDetailsPage(movie.id)),
                 );
               }
             },

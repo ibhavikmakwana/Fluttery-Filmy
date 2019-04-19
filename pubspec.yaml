@@ -25,7 +25,7 @@ dependencies:
   cupertino_icons: ^0.1.2
   transparent_image:
   http:
-
+  rxdart:
 
 dev_dependencies:
   flutter_test:
