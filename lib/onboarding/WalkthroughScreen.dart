@@ -10,7 +10,7 @@ class WalkthroughScreen extends StatefulWidget {
 
   @override
   WalkthroughScreenState createState() {
-    return new WalkthroughScreenState();
+    return WalkthroughScreenState();
   }
 }
 
@@ -22,7 +22,7 @@ class WalkthroughScreenState extends State<WalkthroughScreen> {
   @override
   void initState() {
     super.initState();
-    _controller = new PageController();
+    _controller = PageController();
   }
 
   @override
@@ -33,15 +33,15 @@ class WalkthroughScreenState extends State<WalkthroughScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return new Container(
-      color: new Color(0xFFC5CAE9),
+    return Container(
+      color: Color(0xFFC5CAE9),
       padding: const EdgeInsets.all(24.0),
-      child: new Column(
+      child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: <Widget>[
-          new Expanded(
-            child: new Material(
-              child: new PageView(
+          Expanded(
+            child: Material(
+              child: PageView(
                 children: widget.walkthroughList,
                 controller: _controller,
                 onPageChanged: _onPageChanged,
@@ -50,24 +50,24 @@ class WalkthroughScreenState extends State<WalkthroughScreen> {
             ),
             flex: 10,
           ),
-          new Expanded(
-            child: new ConstrainedBox(
+          Expanded(
+            child: ConstrainedBox(
               constraints: const BoxConstraints(
                 minHeight: double.infinity,
                 minWidth: double.infinity,
               ),
-              child: new MaterialButton(
+              child: MaterialButton(
                 onPressed: () => Navigator.pushReplacement(
                       context,
-                      new MaterialPageRoute(
-                        builder: (_) => new MainApp(),
+                      MaterialPageRoute(
+                        builder: (_) => MainApp(),
                       ),
                     ),
                 color: Colors.lightBlueAccent,
                 splashColor: Colors.redAccent,
                 elevation: 8.0,
                 textColor: Colors.white,
-                child: new Text(
+                child: Text(
                   "Let's Start",
                   style: TextStyle(fontSize: 16.0),
                 ),
@@ -75,14 +75,14 @@ class WalkthroughScreenState extends State<WalkthroughScreen> {
             ),
             flex: 1,
           ),
-//          new Expanded(
+//          Expanded(
 //            flex: 1,
-//            child: new Row(
+//            child: Row(
 //              crossAxisAlignment: CrossAxisAlignment.end,
 //              children: <Widget>[
-//                new SizedBox(
+//                SizedBox(
 //                  width: double.infinity,
-//                  child: new MaterialButton(
+//                  child: MaterialButton(
 //                    onPressed: (){
 //                      setState(() {
 //
@@ -91,7 +91,7 @@ class WalkthroughScreenState extends State<WalkthroughScreen> {
 //                    color: Colors.lightBlueAccent,
 //                    splashColor: Colors.redAccent,
 //                    elevation: 8.0,
-//                    child: new Text("Next"),
+//                    child: Text("Next"),
 //                  ),
 //                ),
 //              ],

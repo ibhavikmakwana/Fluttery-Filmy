@@ -10,19 +10,19 @@ class StoryLine extends StatelessWidget {
     var theme = Theme.of(context);
     var textTheme = Theme.of(context).textTheme;
 
-    return new Column(
+    return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        new Padding(
+        Padding(
           padding: const EdgeInsets.only(top: 8.0, left: 16.0),
-          child: new Text(
+          child: Text(
             'Synopsis',
             style: textTheme.subhead.copyWith(fontSize: 18.0),
           ),
         ),
-        new Padding(
+        Padding(
           padding: const EdgeInsets.only(top: 8.0, left: 16.0, right: 16.0),
-          child: new Text(
+          child: Text(
             storyline,
             style:
                 textTheme.body1.copyWith(color: Colors.black45, fontSize: 16.0),
@@ -30,18 +30,18 @@ class StoryLine extends StatelessWidget {
         ),
         // No expand-collapse in this tutorial, we just slap the "more"
         // button below the text like in the mockup.
-        new Padding(
+        Padding(
           padding: const EdgeInsets.only(left: 16.0, right: 16.0),
-          child: new Row(
+          child: Row(
             mainAxisAlignment: MainAxisAlignment.end,
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
-              new Text(
+              Text(
                 'more',
                 style: textTheme.body1
                     .copyWith(fontSize: 16.0, color: theme.accentColor),
               ),
-              new Icon(
+              Icon(
                 Icons.keyboard_arrow_down,
                 size: 18.0,
                 color: theme.accentColor,

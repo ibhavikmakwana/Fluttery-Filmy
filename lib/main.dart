@@ -34,7 +34,7 @@ Future<List<NowPlayingMovie>> getNowPlayingMovies() async {
           '&page=' +
           '1';
 
-  var httpClient = new HttpClient();
+  var httpClient = HttpClient();
   try {
     // Make the call
     var request = await httpClient.getUrl(Uri.parse(nowPlaying));
@@ -66,7 +66,7 @@ Future<List<UpcomingMovie>> getUpcomingMovies() async {
           '&page=' +
           '1';
 
-  var httpClient = new HttpClient();
+  var httpClient = HttpClient();
   try {
     // Make the call
     var request = await httpClient.getUrl(Uri.parse(nowPlaying));
@@ -98,7 +98,7 @@ Future<List<PopularMovie>> getPopularMovies() async {
           '&page=' +
           '1';
 
-  var httpClient = new HttpClient();
+  var httpClient = HttpClient();
   try {
     // Make the call
     var request = await httpClient.getUrl(Uri.parse(nowPlaying));
@@ -124,7 +124,7 @@ Future<List<PopularMovie>> getPopularMovies() async {
 
 /// Method to parse information from the retrieved data
 List<NowPlayingMovie> createNowPlayingMovieList(List data) {
-  List<NowPlayingMovie> list = new List();
+  List<NowPlayingMovie> list = List();
   for (int i = 0; i < data.length; i++) {
     var id = data[i]["id"];
     String title = data[i]["title"];
@@ -135,7 +135,7 @@ List<NowPlayingMovie> createNowPlayingMovieList(List data) {
     String overview = data[i]["overview"];
     String releaseDate = data[i]["release_date"];
 
-    NowPlayingMovie movie = new NowPlayingMovie(
+    NowPlayingMovie movie = NowPlayingMovie(
         id,
         title,
         posterPath,
@@ -147,7 +147,7 @@ List<NowPlayingMovie> createNowPlayingMovieList(List data) {
 
 /// Method to parse information from the retrieved data
 List<UpcomingMovie> createUpcomingMovieList(List data) {
-  List<UpcomingMovie> list = new List();
+  List<UpcomingMovie> list = List();
   for (int i = 0; i < data.length; i++) {
     var id = data[i]["id"];
     String title = data[i]["title"];
@@ -158,7 +158,7 @@ List<UpcomingMovie> createUpcomingMovieList(List data) {
     String overview = data[i]["overview"];
     String releaseDate = data[i]["release_date"];
 
-    UpcomingMovie movie = new UpcomingMovie(
+    UpcomingMovie movie = UpcomingMovie(
         id,
         title,
         posterPath,
@@ -174,7 +174,7 @@ List<UpcomingMovie> createUpcomingMovieList(List data) {
 
 /// Method to parse information from the retrieved data
 List<PopularMovie> createPopularMovieList(List data) {
-  List<PopularMovie> list = new List();
+  List<PopularMovie> list = List();
   for (int i = 0; i < data.length; i++) {
     var id = data[i]["id"];
     String title = data[i]["title"];
@@ -185,7 +185,7 @@ List<PopularMovie> createPopularMovieList(List data) {
     String overview = data[i]["overview"];
     String releaseDate = data[i]["release_date"];
 
-    PopularMovie movie = new PopularMovie(
+    PopularMovie movie = PopularMovie(
         id,
         title,
         posterPath,
@@ -200,7 +200,7 @@ List<PopularMovie> createPopularMovieList(List data) {
 List<Widget> createNowPlayingMovieCardItem(
     List<NowPlayingMovie> movies, BuildContext context) {
   // Children list for the list.
-  List<Widget> listElementWidgetList = new List<Widget>();
+  List<Widget> listElementWidgetList = List<Widget>();
   if (movies != null) {
     var lengthOfList = movies.length;
     for (int i = 0; i < lengthOfList; i++) {
@@ -208,22 +208,22 @@ List<Widget> createNowPlayingMovieCardItem(
       // Image URL
       var imageURL = "https://image.tmdb.org/t/p/w500/" + movie.posterPath;
       // List item created with an image of the poster
-      var listItem = new GridTile(
-          footer: new GridTileBar(
+      var listItem = GridTile(
+          footer: GridTileBar(
             backgroundColor: Colors.black45,
-            title: new Text(movie.title),
+            title: Text(movie.title),
           ),
-          child: new GestureDetector(
+          child: GestureDetector(
             onTap: () {
               if (movie.id > 0) {
                 Navigator.push(
                   context,
-                  new MaterialPageRoute(
-                      builder: (_) => new MovieDetailsPage(movie.id)),
+                  MaterialPageRoute(
+                      builder: (_) => MovieDetailsPage(movie.id)),
                 );
               }
             },
-            child: new FadeInImage.memoryNetwork(
+            child: FadeInImage.memoryNetwork(
               placeholder: kTransparentImage,
               image: imageURL,
               fit: BoxFit.cover,
@@ -239,7 +239,7 @@ List<Widget> createNowPlayingMovieCardItem(
 List<Widget> createUpcomingMovieCardItem(
     List<UpcomingMovie> movies, BuildContext context) {
   // Children list for the list.
-  List<Widget> listElementWidgetList = new List<Widget>();
+  List<Widget> listElementWidgetList = List<Widget>();
   if (movies != null) {
     var lengthOfList = movies.length;
     for (int i = 0; i < lengthOfList; i++) {
@@ -247,22 +247,22 @@ List<Widget> createUpcomingMovieCardItem(
       // Image URL
       var imageURL = "https://image.tmdb.org/t/p/w500/" + movie.posterPath;
       // List item created with an image of the poster
-      var listItem = new GridTile(
-          footer: new GridTileBar(
+      var listItem = GridTile(
+          footer: GridTileBar(
             backgroundColor: Colors.black45,
-            title: new Text(movie.title),
+            title: Text(movie.title),
           ),
-          child: new GestureDetector(
+          child: GestureDetector(
             onTap: () {
               if (movie.id > 0) {
                 Navigator.push(
                   context,
-                  new MaterialPageRoute(
-                      builder: (_) => new MovieDetailsPage(movie.id)),
+                  MaterialPageRoute(
+                      builder: (_) => MovieDetailsPage(movie.id)),
                 );
               }
             },
-            child: new FadeInImage.memoryNetwork(
+            child: FadeInImage.memoryNetwork(
               placeholder: kTransparentImage,
               image: imageURL,
               fit: BoxFit.cover,
@@ -279,7 +279,7 @@ List<Widget> createUpcomingMovieCardItem(
 List<Widget> createPopularMovieCardItem(
     List<PopularMovie> movies, BuildContext context) {
   // Children list for the list.
-  List<Widget> listElementWidgetList = new List<Widget>();
+  List<Widget> listElementWidgetList = List<Widget>();
   if (movies != null) {
     var lengthOfList = movies.length;
     for (int i = 0; i < lengthOfList; i++) {
@@ -287,22 +287,22 @@ List<Widget> createPopularMovieCardItem(
       // Image URL
       var imageURL = "https://image.tmdb.org/t/p/w500/" + movie.posterPath;
       // List item created with an image of the poster
-      var listItem = new GridTile(
-          footer: new GridTileBar(
+      var listItem = GridTile(
+          footer: GridTileBar(
             backgroundColor: Colors.black45,
-            title: new Text(movie.title),
+            title: Text(movie.title),
           ),
-          child: new GestureDetector(
+          child: GestureDetector(
             onTap: () {
               if (movie.id > 0) {
                 Navigator.push(
                   context,
-                  new MaterialPageRoute(
-                      builder: (_) => new MovieDetailsPage(movie.id)),
+                  MaterialPageRoute(
+                      builder: (_) => MovieDetailsPage(movie.id)),
                 );
               }
             },
-            child: new FadeInImage.memoryNetwork(
+            child: FadeInImage.memoryNetwork(
               placeholder: kTransparentImage,
               image: imageURL,
               fit: BoxFit.cover,
@@ -317,7 +317,7 @@ List<Widget> createPopularMovieCardItem(
 class MainPage extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    return new MainPageState();
+    return MainPageState();
   }
 }
 
@@ -330,35 +330,35 @@ class MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: new AppBar(
-        title: new Text('Fluttery Movies'),
+      appBar: AppBar(
+        title: Text('Fluttery Movies'),
       ),
       body: PageView(
         children: <Widget>[
           //Now Playing
-          new Offstage(
+          Offstage(
             offstage: _page != 0,
-            child: new TickerMode(
+            child: TickerMode(
               enabled: _page == 0,
-              child: new FutureBuilder(
+              child: FutureBuilder(
                   future: getNowPlayingMovies(),
                   builder:
                       (BuildContext context, AsyncSnapshot<List> snapshot) {
                     if (!snapshot.hasData)
                       // Shows progress indicator until the data is load.
-                      return new Container(
-                        child: new Center(
-                          child: new CircularProgressIndicator(),
+                      return Container(
+                        child: Center(
+                          child: CircularProgressIndicator(),
                         ),
                       );
                     // Shows the real data with the data retrieved.
                     List movies = snapshot.data;
-                    return new CustomScrollView(
+                    return CustomScrollView(
                       primary: false,
                       slivers: <Widget>[
-                        new SliverPadding(
+                        SliverPadding(
                           padding: const EdgeInsets.all(10.0),
-                          sliver: new SliverGrid.count(
+                          sliver: SliverGrid.count(
                             crossAxisSpacing: 10.0,
                             mainAxisSpacing: 10.0,
                             crossAxisCount: 2,
@@ -372,29 +372,29 @@ class MainPageState extends State<MainPage> {
             ),
           ),
           //Upcoming
-          new Offstage(
+          Offstage(
             offstage: _page != 1,
-            child: new TickerMode(
+            child: TickerMode(
               enabled: _page == 1,
-              child: new FutureBuilder(
+              child: FutureBuilder(
                   future: getUpcomingMovies(),
                   builder:
                       (BuildContext context, AsyncSnapshot<List> snapshot) {
                     if (!snapshot.hasData)
                       // Shows progress indicator until the data is load.
-                      return new Container(
-                        child: new Center(
-                          child: new CircularProgressIndicator(),
+                      return Container(
+                        child: Center(
+                          child: CircularProgressIndicator(),
                         ),
                       );
                     // Shows the real data with the data retrieved.
                     List movies = snapshot.data;
-                    return new CustomScrollView(
+                    return CustomScrollView(
                       primary: false,
                       slivers: <Widget>[
-                        new SliverPadding(
+                        SliverPadding(
                           padding: const EdgeInsets.all(10.0),
-                          sliver: new SliverGrid.count(
+                          sliver: SliverGrid.count(
                             crossAxisSpacing: 10.0,
                             mainAxisSpacing: 10.0,
                             crossAxisCount: 2,
@@ -408,29 +408,29 @@ class MainPageState extends State<MainPage> {
             ),
           ),
           //Popular
-          new Offstage(
+          Offstage(
             offstage: _page != 2,
-            child: new TickerMode(
+            child: TickerMode(
               enabled: _page == 2,
-              child: new FutureBuilder(
+              child: FutureBuilder(
                   future: getPopularMovies(),
                   builder:
                       (BuildContext context, AsyncSnapshot<List> snapshot) {
                     if (!snapshot.hasData)
                       // Shows progress indicator until the data is load.
-                      return new Container(
-                        child: new Center(
-                          child: new CircularProgressIndicator(),
+                      return Container(
+                        child: Center(
+                          child: CircularProgressIndicator(),
                         ),
                       );
                     // Shows the real data with the data retrieved.
                     List movies = snapshot.data;
-                    return new CustomScrollView(
+                    return CustomScrollView(
                       primary: false,
                       slivers: <Widget>[
-                        new SliverPadding(
+                        SliverPadding(
                           padding: const EdgeInsets.all(10.0),
-                          sliver: new SliverGrid.count(
+                          sliver: SliverGrid.count(
                             crossAxisSpacing: 10.0,
                             mainAxisSpacing: 10.0,
                             crossAxisCount: 2,
@@ -476,7 +476,7 @@ class MainPageState extends State<MainPage> {
   @override
   void initState() {
     super.initState();
-    _pageController = new PageController();
+    _pageController = PageController();
   }
 
   @override

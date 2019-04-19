@@ -10,19 +10,19 @@ class Welcome extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return new MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: new ThemeData(
+      theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: new MyHomePage(),
+      home: MyHomePage(),
     );
   }
 }
 
 class MyHomePage extends StatefulWidget {
   @override
-  _MyHomePageState createState() => new _MyHomePageState();
+  _MyHomePageState createState() => _MyHomePageState();
 }
 
 class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
@@ -43,9 +43,9 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    return new WalkthroughScreen(
+    return WalkthroughScreen(
       list,
-      new MaterialPageRoute(builder: (context) => new Welcome()),
+      MaterialPageRoute(builder: (context) => Welcome()),
     );
   }
 }

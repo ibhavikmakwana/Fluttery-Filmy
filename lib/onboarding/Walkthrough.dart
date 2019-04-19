@@ -12,43 +12,43 @@ class Walkthrough extends StatefulWidget {
 
   @override
   _WalkthroughState createState() {
-    return new _WalkthroughState();
+    return _WalkthroughState();
   }
 }
 
 class _WalkthroughState extends State<Walkthrough> {
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
+    return Scaffold(
       body: Container(
         padding: const EdgeInsets.all(
           16.0,
         ),
-        child: new Center(
+        child: Center(
           child: Column(
             mainAxisSize: MainAxisSize.min,
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
-              new Center(
-                child: new Text(
+              Center(
+                child: Text(
                   widget.title,
-                  style: new TextStyle(
+                  style: TextStyle(
                     fontSize: 16.0,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
               ),
-              new Center(
-                child: new Text(
+              Center(
+                child: Text(
                   widget.content,
-                  style: new TextStyle(
+                  style: TextStyle(
                     fontSize: 16.0,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
               ),
-              new Center(
-                child: new Icon(
+              Center(
+                child: Icon(
                   widget.imageIcon,
                   size: 100.0,
                   color: widget.imageColor,

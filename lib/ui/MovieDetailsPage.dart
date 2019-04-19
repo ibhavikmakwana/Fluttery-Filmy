@@ -19,38 +19,38 @@ class MovieDetailsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
-      body: new FutureBuilder<MovieDetail>(
+    return Scaffold(
+      body: FutureBuilder<MovieDetail>(
         future: getMovieDetail(id),
         builder: (context, snapshot) {
           if (!snapshot.hasData) {
             print("Result $snapshot");
-            return new Container(
+            return Container(
               // Shows progress indicator until the data is load.
-              child: new Center(
-                child: new CircularProgressIndicator(),
+              child: Center(
+                child: CircularProgressIndicator(),
               ),
             );
           } else if (snapshot.hasError) {
-            return new Center(
-              child: new Text("${snapshot.error}"),
+            return Center(
+              child: Text("${snapshot.error}"),
             );
           } else {
             MovieDetail movies = snapshot.data;
-            return new SingleChildScrollView(
-              child: new Column(
+            return SingleChildScrollView(
+              child: Column(
                 children: [
-                  new MovieDetailHeader(movies),
-                  new Padding(
+                  MovieDetailHeader(movies),
+                  Padding(
                     padding: const EdgeInsets.all(0.0),
-                    child: new StoryLine(movies.synopsis),
+                    child: StoryLine(movies.synopsis),
                   ),
-                  new Padding(
+                  Padding(
                     padding: const EdgeInsets.only(
                       top: 20.0,
                       bottom: 50.0,
                     ),
-                    child: new ProductionCompaniesScroller(
+                    child: ProductionCompaniesScroller(
                         movies.productionCompanies),
                   ),
                 ],
@@ -71,7 +71,7 @@ class MovieDetailsPage extends StatelessWidget {
         '&page=' +
         '1';
 
-    var httpClient = new HttpClient();
+    var httpClient = HttpClient();
     try {
       // Make the call
       final response = await http.get(nowPlaying);
@@ -93,8 +93,8 @@ class MovieDetailsPage extends StatelessWidget {
   }
 
   MovieDetail createDetailList(data) {
-    List<String> genresList = new List();
-    List<ProductionCompanies> productionCompaniesList = new List();
+    List<String> genresList = List();
+    List<ProductionCompanies> productionCompaniesList = List();
 
     var id = data["id"];
     var title = data["original_title"];
@@ -104,7 +104,7 @@ class MovieDetailsPage extends StatelessWidget {
       String name = productionCompany[i]["name"];
       String logoPath = productionCompany[i]["logo_path"];
       ProductionCompanies productionCompanies =
-          new ProductionCompanies(id, name, logoPath);
+          ProductionCompanies(id, name, logoPath);
       productionCompaniesList.add(productionCompanies);
     }
     var genres = data["genres"];
@@ -122,7 +122,7 @@ class MovieDetailsPage extends StatelessWidget {
   }
 }
 
-//  List<MovieDetail> list = new List();
+//  List<MovieDetail> list = List();
 //  for (int i = 0; i < results.length; i++) {
 //    var id = data[i]["id"];
 //    String title = data[i]["title"];
@@ -133,7 +133,7 @@ class MovieDetailsPage extends StatelessWidget {
 //    String overview = data[i]["overview"];
 //    String releaseDate = data[i]["release_date"];
 //
-//    PopularMovie movie = new PopularMovie(id, title, posterPath, backdropImage,
+//    PopularMovie movie = PopularMovie(id, title, posterPath, backdropImage,
 //        originalTitle, voteAverage, overview, releaseDate);
 //    list.add(movie);
 //  }

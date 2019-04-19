@@ -11,8 +11,8 @@ class MovieDetailHeader extends StatelessWidget {
 
   _buildCategoryChips(TextTheme textTheme) {
     return movies.genres.map((genres) {
-      return new Chip(
-        label: new Text(genres),
+      return Chip(
+        label: Text(genres),
         labelStyle: textTheme.caption,
         backgroundColor: Colors.black12,
       );
@@ -23,23 +23,23 @@ class MovieDetailHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     var textTheme = Theme.of(context).textTheme;
 
-    var movieInformation = new Column(
+    var movieInformation = Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        new Padding(
+        Padding(
           padding: const EdgeInsets.only(top: 16.0),
-          child: new Text(
+          child: Text(
             movies.originalTitle,
             style: textTheme.title,
           ),
         ),
-        new Padding(
+        Padding(
           padding: const EdgeInsets.only(top: 8.0),
-          child: new RatingInformation(movies),
+          child: RatingInformation(movies),
         ),
-        new Padding(
+        Padding(
           padding: const EdgeInsets.only(top: 12.0),
-          child: new Wrap(
+          child: Wrap(
             spacing: 8.0,
             runSpacing: 4.0,
             direction: Axis.horizontal,
@@ -49,30 +49,30 @@ class MovieDetailHeader extends StatelessWidget {
       ],
     );
 
-    return new Stack(
+    return Stack(
       children: [
-        new Padding(
+        Padding(
           padding: const EdgeInsets.only(bottom: 240.0),
-          child: new ArcBannerImage(
+          child: ArcBannerImage(
               "https://image.tmdb.org/t/p/w500/" + movies.backdropPath),
         ),
-        new Positioned(
+        Positioned(
           bottom: 32.0,
           left: 16.0,
           right: 16.0,
-          child: new Row(
+          child: Row(
             crossAxisAlignment: CrossAxisAlignment.end,
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
-              new Padding(
+              Padding(
                 padding: const EdgeInsets.only(bottom: 70.0),
-                child: new Poster(
+                child: Poster(
                   "https://image.tmdb.org/t/p/w500/" + movies.posterPath,
                   height: 190.0,
                 ),
               ),
-              new Expanded(
-                child: new Padding(
+              Expanded(
+                child: Padding(
                   padding: const EdgeInsets.only(left: 16.0),
                   child: movieInformation,
                 ),

@@ -4,38 +4,38 @@ import 'package:flutter/material.dart';
 
 class AnimatedLogo extends AnimatedWidget {
   // The Tweens are static because they don't change.
-  static final _opacityTween = new Tween<double>(begin: 0.0, end: 1.0);
+  static final _opacityTween = Tween<double>(begin: 0.0, end: 1.0);
 
-  static final _sizeTween = new Tween<double>(begin: 100.0, end: 300.0);
+  static final _sizeTween = Tween<double>(begin: 100.0, end: 300.0);
 
   AnimatedLogo({Animation<double> animation}) : super(listenable: animation);
 
   Widget build(BuildContext context) {
     final Animation<double> animation = listenable;
-    return new Material(
-      child: new Container(
+    return Material(
+      child: Container(
         color: Colors.white,
-        child: new Stack(
-          alignment: new Alignment(00.00, 00.00),
+        child: Stack(
+          alignment: Alignment(00.00, 00.00),
           children: <Widget>[
-            new Opacity(
+            Opacity(
               opacity: _opacityTween.evaluate(animation),
-              child: new Container(
+              child: Container(
                 height: _sizeTween.evaluate(animation),
                 width: _sizeTween.evaluate(animation),
-                decoration: new BoxDecoration(
+                decoration: BoxDecoration(
                   shape: BoxShape.circle,
                   color: Colors.lightBlueAccent,
-                  border: new Border.all(
+                  border: Border.all(
                     color: Colors.lightBlueAccent,
                   ),
                 ),
                 padding: const EdgeInsets.all(32.0),
-                child: new Container(
-                  decoration: new BoxDecoration(
+                child: Container(
+                  decoration: BoxDecoration(
                     shape: BoxShape.circle,
                     color: Colors.blue,
-                    border: new Border.all(
+                    border: Border.all(
                       color: Colors.blue,
                     ),
                   ),
@@ -43,10 +43,10 @@ class AnimatedLogo extends AnimatedWidget {
                 ),
               ),
             ),
-            new Container(
-              margin: new EdgeInsets.symmetric(vertical: 10.0),
-              child: new Image(
-                image: new AssetImage('assets/launcher.png'),
+            Container(
+              margin: EdgeInsets.symmetric(vertical: 10.0),
+              child: Image(
+                image: AssetImage('assets/launcher.png'),
               ),
             ),
           ],
@@ -57,7 +57,7 @@ class AnimatedLogo extends AnimatedWidget {
 }
 
 class LogoApp extends StatefulWidget {
-  _LogoAppState createState() => new _LogoAppState();
+  _LogoAppState createState() => _LogoAppState();
 }
 
 class _LogoAppState extends State<LogoApp> with TickerProviderStateMixin {
@@ -66,11 +66,11 @@ class _LogoAppState extends State<LogoApp> with TickerProviderStateMixin {
 
   initState() {
     super.initState();
-    controller = new AnimationController(
+    controller = AnimationController(
       duration: const Duration(milliseconds: 3000),
       vsync: this,
     );
-    animation = new CurvedAnimation(
+    animation = CurvedAnimation(
       parent: controller,
       curve: Curves.ease,
     );
@@ -86,7 +86,7 @@ class _LogoAppState extends State<LogoApp> with TickerProviderStateMixin {
   }
 
   Widget build(BuildContext context) {
-    return new AnimatedLogo(animation: animation);
+    return AnimatedLogo(animation: animation);
   }
 
   dispose() {
@@ -96,5 +96,5 @@ class _LogoAppState extends State<LogoApp> with TickerProviderStateMixin {
 }
 
 void main() {
-  runApp(new LogoApp());
+  runApp(LogoApp());
 }
