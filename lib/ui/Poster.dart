@@ -5,7 +5,7 @@ class Poster extends StatelessWidget {
 
   Poster(
     this.posterUrl, {
-    this.height = 100.0,
+    this.height = 100,
   });
 
   final String posterUrl;
@@ -16,8 +16,8 @@ class Poster extends StatelessWidget {
     var width = POSTER_RATIO * height;
 
     return Material(
-      borderRadius: BorderRadius.circular(4.0),
-      elevation: 2.0,
+      borderRadius: BorderRadius.circular(4),
+      elevation: 2,
       child: Image.network(
         posterUrl,
         fit: BoxFit.cover,

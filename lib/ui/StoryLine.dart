@@ -14,24 +14,24 @@ class StoryLine extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Padding(
-          padding: const EdgeInsets.only(top: 8.0, left: 16.0),
+          padding: const EdgeInsets.only(top: 8, left: 16),
           child: Text(
             'Synopsis',
-            style: textTheme.subhead.copyWith(fontSize: 18.0),
+            style: textTheme.subhead.copyWith(fontSize: 18),
           ),
         ),
         Padding(
-          padding: const EdgeInsets.only(top: 8.0, left: 16.0, right: 16.0),
+          padding: const EdgeInsets.only(top: 8, left: 16, right: 16),
           child: Text(
             storyline,
             style:
-                textTheme.body1.copyWith(color: Colors.black45, fontSize: 16.0),
+                textTheme.body1.copyWith(color: Colors.black45, fontSize: 16),
           ),
         ),
         // No expand-collapse in this tutorial, we just slap the "more"
         // button below the text like in the mockup.
         Padding(
-          padding: const EdgeInsets.only(left: 16.0, right: 16.0),
+          padding: const EdgeInsets.only(left: 16, right: 16),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.end,
             crossAxisAlignment: CrossAxisAlignment.end,
@@ -39,11 +39,11 @@ class StoryLine extends StatelessWidget {
               Text(
                 'more',
                 style: textTheme.body1
-                    .copyWith(fontSize: 16.0, color: theme.accentColor),
+                    .copyWith(fontSize: 16, color: theme.accentColor),
               ),
               Icon(
                 Icons.keyboard_arrow_down,
-                size: 18.0,
+                size: 18,
                 color: theme.accentColor,
               ),
             ],

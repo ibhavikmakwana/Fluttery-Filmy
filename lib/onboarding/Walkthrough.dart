@@ -22,7 +22,7 @@ class _WalkthroughState extends State<Walkthrough> {
     return Scaffold(
       body: Container(
         padding: const EdgeInsets.all(
-          16.0,
+          16,
         ),
         child: Center(
           child: Column(
@@ -33,7 +33,7 @@ class _WalkthroughState extends State<Walkthrough> {
                 child: Text(
                   widget.title,
                   style: TextStyle(
-                    fontSize: 16.0,
+                    fontSize: 16,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
@@ -42,7 +42,7 @@ class _WalkthroughState extends State<Walkthrough> {
                 child: Text(
                   widget.content,
                   style: TextStyle(
-                    fontSize: 16.0,
+                    fontSize: 16,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
@@ -50,7 +50,7 @@ class _WalkthroughState extends State<Walkthrough> {
               Center(
                 child: Icon(
                   widget.imageIcon,
-                  size: 100.0,
+                  size: 100,
                   color: widget.imageColor,
                 ),
               ),

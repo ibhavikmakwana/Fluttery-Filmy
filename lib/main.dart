@@ -357,10 +357,10 @@ class MainPageState extends State<MainPage> {
                       primary: false,
                       slivers: <Widget>[
                         SliverPadding(
-                          padding: const EdgeInsets.all(10.0),
+                          padding: const EdgeInsets.all(10),
                           sliver: SliverGrid.count(
-                            crossAxisSpacing: 10.0,
-                            mainAxisSpacing: 10.0,
+                            crossAxisSpacing: 10,
+                            mainAxisSpacing: 10,
                             crossAxisCount: 2,
                             children:
                                 createNowPlayingMovieCardItem(movies, context),
@@ -393,10 +393,10 @@ class MainPageState extends State<MainPage> {
                       primary: false,
                       slivers: <Widget>[
                         SliverPadding(
-                          padding: const EdgeInsets.all(10.0),
+                          padding: const EdgeInsets.all(10),
                           sliver: SliverGrid.count(
-                            crossAxisSpacing: 10.0,
-                            mainAxisSpacing: 10.0,
+                            crossAxisSpacing: 10,
+                            mainAxisSpacing: 10,
                             crossAxisCount: 2,
                             children:
                                 createUpcomingMovieCardItem(movies, context),
@@ -429,10 +429,10 @@ class MainPageState extends State<MainPage> {
                       primary: false,
                       slivers: <Widget>[
                         SliverPadding(
-                          padding: const EdgeInsets.all(10.0),
+                          padding: const EdgeInsets.all(10),
                           sliver: SliverGrid.count(
-                            crossAxisSpacing: 10.0,
-                            mainAxisSpacing: 10.0,
+                            crossAxisSpacing: 10,
+                            mainAxisSpacing: 10,
                             crossAxisCount: 2,
                             children:
                                 createPopularMovieCardItem(movies, context),

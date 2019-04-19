@@ -42,13 +42,13 @@ class MovieDetailsPage extends StatelessWidget {
                 children: [
                   MovieDetailHeader(movies),
                   Padding(
-                    padding: const EdgeInsets.all(0.0),
+                    padding: const EdgeInsets.all(0),
                     child: StoryLine(movies.synopsis),
                   ),
                   Padding(
                     padding: const EdgeInsets.only(
-                      top: 20.0,
-                      bottom: 50.0,
+                      top: 20,
+                      bottom: 50,
                     ),
                     child: ProductionCompaniesScroller(
                         movies.productionCompanies),

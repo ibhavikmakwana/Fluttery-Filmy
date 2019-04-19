@@ -35,7 +35,7 @@ class WalkthroughScreenState extends State<WalkthroughScreen> {
   Widget build(BuildContext context) {
     return Container(
       color: Color(0xFFC5CAE9),
-      padding: const EdgeInsets.all(24.0),
+      padding: const EdgeInsets.all(24),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: <Widget>[
@@ -46,7 +46,7 @@ class WalkthroughScreenState extends State<WalkthroughScreen> {
                 controller: _controller,
                 onPageChanged: _onPageChanged,
               ),
-              elevation: 8.0,
+              elevation: 8,
             ),
             flex: 10,
           ),
@@ -65,11 +65,11 @@ class WalkthroughScreenState extends State<WalkthroughScreen> {
                     ),
                 color: Colors.lightBlueAccent,
                 splashColor: Colors.redAccent,
-                elevation: 8.0,
+                elevation: 8,
                 textColor: Colors.white,
                 child: Text(
                   "Let's Start",
-                  style: TextStyle(fontSize: 16.0),
+                  style: TextStyle(fontSize: 16),
                 ),
               ),
             ),
@@ -90,7 +90,7 @@ class WalkthroughScreenState extends State<WalkthroughScreen> {
 //                    },
 //                    color: Colors.lightBlueAccent,
 //                    splashColor: Colors.redAccent,
-//                    elevation: 8.0,
+//                    elevation: 8,
 //                    child: Text("Next"),
 //                  ),
 //                ),

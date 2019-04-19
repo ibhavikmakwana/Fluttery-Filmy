@@ -14,7 +14,7 @@ class ArcBannerImage extends StatelessWidget {
       child: Image.network(
         imageUrl,
         width: screenWidth,
-        height: 230.0,
+        height: 230,
         fit: BoxFit.cover,
       ),
     );
@@ -25,7 +25,7 @@ class ArcClipper extends CustomClipper<Path> {
   @override
   Path getClip(Size size) {
     var path = Path();
-    path.lineTo(0.0, size.height - 30);
+    path.lineTo(0, size.height - 30);
 
     var firstControlPoint = Offset(size.width / 4, size.height);
     var firstPoint = Offset(size.width / 2, size.height);
@@ -38,7 +38,7 @@ class ArcClipper extends CustomClipper<Path> {
     path.quadraticBezierTo(secondControlPoint.dx, secondControlPoint.dy,
         secondPoint.dx, secondPoint.dy);
 
-    path.lineTo(size.width, 0.0);
+    path.lineTo(size.width, 0);
     path.close();
 
     return path;

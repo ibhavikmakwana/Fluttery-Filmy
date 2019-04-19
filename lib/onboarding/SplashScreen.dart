@@ -4,9 +4,9 @@ import 'package:flutter/material.dart';
 
 class AnimatedLogo extends AnimatedWidget {
   // The Tweens are static because they don't change.
-  static final _opacityTween = Tween<double>(begin: 0.0, end: 1.0);
+  static final _opacityTween = Tween<double>(begin: 0, end: 1);
 
-  static final _sizeTween = Tween<double>(begin: 100.0, end: 300.0);
+  static final _sizeTween = Tween<double>(begin: 100, end: 300);
 
   AnimatedLogo({Animation<double> animation}) : super(listenable: animation);
 
@@ -16,7 +16,7 @@ class AnimatedLogo extends AnimatedWidget {
       child: Container(
         color: Colors.white,
         child: Stack(
-          alignment: Alignment(00.00, 00.00),
+          alignment: Alignment(000, 000),
           children: <Widget>[
             Opacity(
               opacity: _opacityTween.evaluate(animation),
@@ -30,7 +30,7 @@ class AnimatedLogo extends AnimatedWidget {
                     color: Colors.lightBlueAccent,
                   ),
                 ),
-                padding: const EdgeInsets.all(32.0),
+                padding: const EdgeInsets.all(32),
                 child: Container(
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
@@ -39,12 +39,12 @@ class AnimatedLogo extends AnimatedWidget {
                       color: Colors.blue,
                     ),
                   ),
-                  padding: const EdgeInsets.all(32.0),
+                  padding: const EdgeInsets.all(32),
                 ),
               ),
             ),
             Container(
-              margin: EdgeInsets.symmetric(vertical: 10.0),
+              margin: EdgeInsets.symmetric(vertical: 10),
               child: Image(
                 image: AssetImage('assets/launcher.png'),
               ),

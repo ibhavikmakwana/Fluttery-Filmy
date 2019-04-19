@@ -38,7 +38,7 @@ class RatingInformation extends StatelessWidget {
               .copyWith(fontWeight: FontWeight.w400, color: theme.accentColor),
         ),
         Padding(
-          padding: const EdgeInsets.only(top: 4.0),
+          padding: const EdgeInsets.only(top: 4),
           child: Text(
             'Ratings',
             style: ratingCaptionStyle,
@@ -53,7 +53,7 @@ class RatingInformation extends StatelessWidget {
       children: <Widget>[
         _buildRatingBar(theme),
         Padding(
-          padding: const EdgeInsets.only(top: 4.0, left: 4.0),
+          padding: const EdgeInsets.only(top: 4, left: 4),
           child: Text(
             'Grade now',
             style: ratingCaptionStyle,
@@ -67,7 +67,7 @@ class RatingInformation extends StatelessWidget {
       children: <Widget>[
         numericRating,
         Padding(
-          padding: const EdgeInsets.only(left: 16.0),
+          padding: const EdgeInsets.only(left: 16),
           child: starRating,
         )
       ],

@@ -27,21 +27,21 @@ class MovieDetailHeader extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Padding(
-          padding: const EdgeInsets.only(top: 16.0),
+          padding: const EdgeInsets.only(top: 16),
           child: Text(
             movies.originalTitle,
             style: textTheme.title,
           ),
         ),
         Padding(
-          padding: const EdgeInsets.only(top: 8.0),
+          padding: const EdgeInsets.only(top: 8),
           child: RatingInformation(movies),
         ),
         Padding(
-          padding: const EdgeInsets.only(top: 12.0),
+          padding: const EdgeInsets.only(top: 12),
           child: Wrap(
-            spacing: 8.0,
-            runSpacing: 4.0,
+            spacing: 8,
+            runSpacing: 4,
             direction: Axis.horizontal,
             children: _buildCategoryChips(textTheme),
           ),
@@ -52,28 +52,28 @@ class MovieDetailHeader extends StatelessWidget {
     return Stack(
       children: [
         Padding(
-          padding: const EdgeInsets.only(bottom: 240.0),
+          padding: const EdgeInsets.only(bottom: 240),
           child: ArcBannerImage(
               "https://image.tmdb.org/t/p/w500/" + movies.backdropPath),
         ),
         Positioned(
-          bottom: 32.0,
-          left: 16.0,
-          right: 16.0,
+          bottom: 32,
+          left: 16,
+          right: 16,
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.end,
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
               Padding(
-                padding: const EdgeInsets.only(bottom: 70.0),
+                padding: const EdgeInsets.only(bottom: 70),
                 child: Poster(
                   "https://image.tmdb.org/t/p/w500/" + movies.posterPath,
-                  height: 190.0,
+                  height: 190,
                 ),
               ),
               Expanded(
                 child: Padding(
-                  padding: const EdgeInsets.only(left: 16.0),
+                  padding: const EdgeInsets.only(left: 16),
                   child: movieInformation,
                 ),
               ),

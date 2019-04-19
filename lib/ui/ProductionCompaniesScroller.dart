@@ -9,17 +9,17 @@ class ProductionCompaniesScroller extends StatelessWidget {
   Widget _buildCompanies(BuildContext context, int index) {
     var companies = productionCompanies[index];
     return Padding(
-      padding: const EdgeInsets.only(right: 16.0),
+      padding: const EdgeInsets.only(right: 16),
       child: Column(
         children: [
           CircleAvatar(
             backgroundImage: NetworkImage(companies.logoPath != null
                 ? "https://image.tmdb.org/t/p/w500/" + companies.logoPath
                 : "https://ibb.co/cma2t8",),
-            radius: 35.0,
+            radius: 35,
           ),
           Padding(
-            padding: const EdgeInsets.only(top: 8.0),
+            padding: const EdgeInsets.only(top: 8),
             child: Text(companies.name,),
           ),
         ],
@@ -34,18 +34,18 @@ class ProductionCompaniesScroller extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16.0),
+          padding: const EdgeInsets.symmetric(horizontal: 16),
           child: Text(
             'Production Companies',
-            style: textTheme.subhead.copyWith(fontSize: 18.0),
+            style: textTheme.subhead.copyWith(fontSize: 18),
           ),
         ),
         SizedBox.fromSize(
-          size: const Size.fromHeight(120.0),
+          size: const Size.fromHeight(120),
           child: ListView.builder(
             itemCount: productionCompanies.length,
             scrollDirection: Axis.horizontal,
-            padding: const EdgeInsets.only(top: 12.0, left: 20.0),
+            padding: const EdgeInsets.only(top: 12, left: 20),
             itemBuilder: _buildCompanies,
           ),
         ),
