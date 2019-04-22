@@ -1,0 +1,1 @@
+enum BottomNavBarItem { NOW_PLAYING, UPCOMING, POPULAR }
