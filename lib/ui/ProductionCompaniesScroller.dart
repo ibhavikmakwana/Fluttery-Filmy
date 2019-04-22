@@ -13,14 +13,18 @@ class ProductionCompaniesScroller extends StatelessWidget {
       child: Column(
         children: [
           CircleAvatar(
-            backgroundImage: NetworkImage(companies.logoPath != null
-                ? "https://image.tmdb.org/t/p/w500/" + companies.logoPath
-                : "https://ibb.co/cma2t8",),
+            backgroundImage: NetworkImage(
+              companies.logoPath != null
+                  ? "https://image.tmdb.org/t/p/w500/" + companies.logoPath
+                  : "https://image.ibb.co/fUMxRT/ic-launcher-movies.png",
+            ),
             radius: 35,
           ),
           Padding(
             padding: const EdgeInsets.only(top: 8),
-            child: Text(companies.name,),
+            child: Text(
+              companies.name,
+            ),
           ),
         ],
       ),

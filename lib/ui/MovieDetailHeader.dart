@@ -12,7 +12,7 @@ class MovieDetailHeader extends StatelessWidget {
   _buildCategoryChips(TextTheme textTheme) {
     return movies.genres.map((genres) {
       return Chip(
-        label: Text(genres),
+        label: Text(genres.name),
         labelStyle: textTheme.caption,
         backgroundColor: Colors.black12,
       );
