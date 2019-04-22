@@ -7,15 +7,45 @@ import 'package:http/http.dart' as http;
 class DataProvider {
   String _baseUrl = "https://api.themoviedb.org/3/movie/";
 
-  Future<NowPlayingMovie> getNowPlayingMovies(int page) async {
-    final String nowPlayingUrl =
+  Future<MovieResponse> getNowPlayingMovies(int page) async {
+    final String url =
         "${_baseUrl}now_playing?api_key=${TMDBConfig.apiKey}&page=$page";
 
-    var response = await http.get(nowPlayingUrl);
+    var response = await http.get(url);
 
     if (response.statusCode == 200) {
       print(response.body);
-      return NowPlayingMovie.fromJson(json.decode(response.body));
+      return MovieResponse.fromJson(json.decode(response.body));
+    } else {
+      // If that call was not successful, throw an error.
+      throw Exception('Failed to load movies');
+    }
+  }
+
+  Future<MovieResponse> getPopularMovies(int page) async {
+    final String url =
+        "${_baseUrl}popular?api_key=${TMDBConfig.apiKey}&page=$page";
+
+    var response = await http.get(url);
+
+    if (response.statusCode == 200) {
+      print(response.body);
+      return MovieResponse.fromJson(json.decode(response.body));
+    } else {
+      // If that call was not successful, throw an error.
+      throw Exception('Failed to load movies');
+    }
+  }
+
+  Future<MovieResponse> getUpcomingMovies(int page) async {
+    final String url =
+        "${_baseUrl}upcoming?api_key=${TMDBConfig.apiKey}&page=$page";
+
+    var response = await http.get(url);
+
+    if (response.statusCode == 200) {
+      print(response.body);
+      return MovieResponse.fromJson(json.decode(response.body));
     } else {
       // If that call was not successful, throw an error.
       throw Exception('Failed to load movies');

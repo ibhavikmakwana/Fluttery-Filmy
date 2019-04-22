@@ -1,34 +1,18 @@
-/*
-class NowPlayingMovie {
-  var id;
-  String title;
-  String posterPath;
-  String backdropPath;
-  String originalTitle;
-  var voteAverage;
-  String overview;
-  String releaseDate;
-
-  NowPlayingMovie(this.id, this.title, this.posterPath, this.backdropPath,
-      this.originalTitle, this.voteAverage, this.overview, this.releaseDate);
-}
-*/
-
-class NowPlayingMovie {
+class MovieResponse {
   List<Results> results;
   int page;
   int totalResults;
   Dates dates;
   int totalPages;
 
-  NowPlayingMovie(
+  MovieResponse(
       {this.results,
       this.page,
       this.totalResults,
       this.dates,
       this.totalPages});
 
-  NowPlayingMovie.fromJson(Map<String, dynamic> json) {
+  MovieResponse.fromJson(Map<String, dynamic> json) {
     if (json['results'] != null) {
       results = new List<Results>();
       json['results'].forEach((v) {
@@ -60,7 +44,7 @@ class Results {
   int voteCount;
   int id;
   bool video;
-  double voteAverage;
+  var voteAverage;
   String title;
   double popularity;
   String posterPath;
