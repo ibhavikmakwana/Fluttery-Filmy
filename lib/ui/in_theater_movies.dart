@@ -22,7 +22,7 @@ class InTheaterMovies extends StatelessWidget {
       );
     } else if (snapshot.hasData) {
       return SizedBox(
-        height: 300,
+        height: 450,
         child: ListView.builder(
           itemCount: snapshot.data.results.length,
           shrinkWrap: true,
@@ -45,43 +45,5 @@ class InTheaterMovies extends StatelessWidget {
         child: Text("Something went wrong"),
       );
     }
-  }
-}
-
-class GridTileItem extends StatelessWidget {
-  final Results result;
-
-  const GridTileItem({Key key, this.result}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return GridTile(
-      footer: GridTileBar(
-        backgroundColor: Colors.black45,
-        title: Text(result.title),
-      ),
-      child: GestureDetector(
-        onTap: () {
-          if (result.id > 0) {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (_) => BlocProvider(
-                      child: MovieDetailsPage(
-                        id: result.id,
-                      ),
-                      bloc: DetailBloc(),
-                    ),
-              ),
-            );
-          }
-        },
-        child: FadeInImage.memoryNetwork(
-          placeholder: kTransparentImage,
-          image: "https://image.tmdb.org/t/p/w500/" + result.posterPath,
-          fit: BoxFit.cover,
-        ),
-      ),
-    );
   }
 }

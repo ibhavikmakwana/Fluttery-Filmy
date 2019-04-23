@@ -2,14 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:fluttery_filmy/bloc/bloc_provider.dart';
 import 'package:fluttery_filmy/bloc/detail_bloc.dart';
 import 'package:fluttery_filmy/model/MovieDetail.dart';
+import 'package:fluttery_filmy/model/NowPlayingMovie.dart';
 import 'package:fluttery_filmy/ui/MovieDetailHeader.dart';
 import 'package:fluttery_filmy/ui/ProductionCompaniesScroller.dart';
 import 'package:fluttery_filmy/ui/StoryLine.dart';
 
 class MovieDetailsPage extends StatelessWidget {
   final int id;
+  final Results result;
 
-  const MovieDetailsPage({Key key, this.id}) : super(key: key);
+  const MovieDetailsPage({Key key, this.id, this.result}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

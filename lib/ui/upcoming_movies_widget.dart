@@ -20,17 +20,24 @@ class UpcomingMoviesItem extends StatelessWidget {
             builder: (_) => BlocProvider(
                   child: MovieDetailsPage(
                     id: result.id,
+                    result: result,
                   ),
                   bloc: DetailBloc(),
                 ),
           ),
         );
       },
-      child: Container(
-        padding: EdgeInsets.only(
+      child: Card(
+        margin: EdgeInsets.only(
           left: 8,
           right: 8,
           bottom: 8,
+        ),
+        elevation: 8,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(
+            16,
+          ),
         ),
         child: ClipRRect(
           borderRadius: BorderRadius.circular(16),

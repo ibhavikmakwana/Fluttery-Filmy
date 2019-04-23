@@ -25,32 +25,33 @@ class MovieDetail {
   var voteAverage;
   var voteCount;
 
-  MovieDetail(
-      {this.adult,
-        this.backdropPath,
-        this.belongsToCollection,
-        this.budget,
-        this.genres,
-        this.homepage,
-        this.id,
-        this.imdbId,
-        this.originalLanguage,
-        this.originalTitle,
-        this.overview,
-        this.popularity,
-        this.posterPath,
-        this.productionCompanies,
-        this.productionCountries,
-        this.releaseDate,
-        this.revenue,
-        this.runtime,
-        this.spokenLanguages,
-        this.status,
-        this.tagline,
-        this.title,
-        this.video,
-        this.voteAverage,
-        this.voteCount});
+  MovieDetail({
+    this.adult,
+    this.backdropPath,
+    this.belongsToCollection,
+    this.budget,
+    this.genres,
+    this.homepage,
+    this.id,
+    this.imdbId,
+    this.originalLanguage,
+    this.originalTitle,
+    this.overview,
+    this.popularity,
+    this.posterPath,
+    this.productionCompanies,
+    this.productionCountries,
+    this.releaseDate,
+    this.revenue,
+    this.runtime,
+    this.spokenLanguages,
+    this.status,
+    this.tagline,
+    this.title,
+    this.video,
+    this.voteAverage,
+    this.voteCount,
+  });
 
   MovieDetail.fromJson(Map<String, dynamic> json) {
     adult = json['adult'];
@@ -252,7 +253,6 @@ class SpokenLanguages {
     return data;
   }
 }
-
 
 //class MovieDetail {
 //  var id;

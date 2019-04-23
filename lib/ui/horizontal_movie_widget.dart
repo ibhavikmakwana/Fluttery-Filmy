@@ -20,26 +20,35 @@ class MovieWidget extends StatelessWidget {
             builder: (_) => BlocProvider(
                   child: MovieDetailsPage(
                     id: result.id,
+                    result: result,
                   ),
                   bloc: DetailBloc(),
                 ),
           ),
         );
       },
-      child: Container(
-        width: 200,
+      child: SizedBox(
+        width: 300,
         child: Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            ClipRRect(
-              borderRadius: BorderRadius.circular(16),
-              child: FadeInImage.memoryNetwork(
-                height: 200,
-                width: 200,
-                placeholder: kTransparentImage,
-                image: "https://image.tmdb.org/t/p/w500/" + result.backdropPath,
-                fit: BoxFit.cover,
+            Card(
+              elevation: 8,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(
+                  16,
+                ),
+              ),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(16),
+                child: FadeInImage.memoryNetwork(
+                  height: 350,
+                  width: 300,
+                  placeholder: kTransparentImage,
+                  image: "https://image.tmdb.org/t/p/w500/" + result.backdropPath,
+                  fit: BoxFit.cover,
+                ),
               ),
             ),
             Expanded(
