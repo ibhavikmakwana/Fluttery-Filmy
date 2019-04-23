@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:fluttery_filmy/bloc/bloc_provider.dart';
 import 'package:fluttery_filmy/bloc/movies_bloc.dart';
-import 'package:fluttery_filmy/model/NowPlayingMovie.dart';
+import 'package:fluttery_filmy/model/movie_list_response.dart';
 import 'package:fluttery_filmy/ui/in_theater_movies.dart';
 import 'package:fluttery_filmy/ui/upcoming_movies_widget.dart';
 
@@ -123,7 +123,7 @@ class MainPage extends StatelessWidget {
 }
 
 /*
-* 
+*
 
           StreamBuilder<MovieResponse>(
             stream: bloc.upcomingMovies,

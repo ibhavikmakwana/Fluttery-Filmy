@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:fluttery_filmy/bloc/bloc_provider.dart';
 import 'package:fluttery_filmy/bloc/detail_bloc.dart';
 import 'package:fluttery_filmy/model/MovieDetail.dart';
-import 'package:fluttery_filmy/model/NowPlayingMovie.dart';
+import 'package:fluttery_filmy/model/movie_list_response.dart';
 import 'package:fluttery_filmy/ui/MovieDetailHeader.dart';
 import 'package:fluttery_filmy/ui/ProductionCompaniesScroller.dart';
 import 'package:fluttery_filmy/ui/StoryLine.dart';

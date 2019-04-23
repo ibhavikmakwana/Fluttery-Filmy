@@ -2,7 +2,7 @@ import 'dart:async';
 import 'dart:convert';
 import 'package:fluttery_filmy/TMDBConfig.dart';
 import 'package:fluttery_filmy/model/MovieDetail.dart';
-import 'package:fluttery_filmy/model/NowPlayingMovie.dart';
+import 'package:fluttery_filmy/model/movie_list_response.dart';
 import 'package:http/http.dart' as http;
 
 class DataProvider {

@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:fluttery_filmy/bloc/bloc_provider.dart';
 import 'package:fluttery_filmy/bloc/detail_bloc.dart';
-import 'package:fluttery_filmy/model/NowPlayingMovie.dart';
+import 'package:fluttery_filmy/model/movie_list_response.dart';
 import 'package:fluttery_filmy/ui/MovieDetailsPage.dart';
 import 'package:transparent_image/transparent_image.dart';
+
+import 'detail/detail_screen.dart';
 
 class UpcomingMoviesItem extends StatelessWidget {
   final Results result;
@@ -18,7 +20,7 @@ class UpcomingMoviesItem extends StatelessWidget {
           context,
           MaterialPageRoute(
             builder: (_) => BlocProvider(
-                  child: MovieDetailsPage(
+                  child: Detail(
                     id: result.id,
                     result: result,
                   ),

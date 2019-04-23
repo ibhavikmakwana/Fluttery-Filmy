@@ -1,5 +1,5 @@
 import 'package:fluttery_filmy/bloc/bloc_provider.dart';
-import 'package:fluttery_filmy/model/NowPlayingMovie.dart';
+import 'package:fluttery_filmy/model/movie_list_response.dart';
 import 'package:fluttery_filmy/network/DataProvider.dart';
 import 'package:rxdart/rxdart.dart';
 
